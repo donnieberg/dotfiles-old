@@ -1,0 +1,5 @@
+[user]
+	name = Donielle Berg
+	email = donielle.berg@gmail.com
+[credential]
+	helper = osxkeychain
