@@ -3,3 +3,5 @@
 	email = donielle.berg@gmail.com
 [credential]
 	helper = osxkeychain
+[push]
+	default = simple
