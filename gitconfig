@@ -10,4 +10,6 @@
   a = add .
   c = commit
   cm = commit -m
+  p = push
   cob = checkout -b
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
