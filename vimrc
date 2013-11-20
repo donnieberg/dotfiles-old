@@ -141,3 +141,5 @@ nnoremap <leader>ft :set filetype=HTML<cr> ",ft sets filtype to html
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS " Gives css auto completion to files using filetype=css
+
+nnoremap <leader>fc :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>

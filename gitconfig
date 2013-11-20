@@ -5,3 +5,9 @@
 	helper = osxkeychain
 [push]
 	default = simple
+
+[alias]
+  a = add .
+  c = commit
+  cm = commit -m
+  cob = checkout -b
