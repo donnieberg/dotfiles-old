@@ -108,7 +108,7 @@ nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
 nnoremap tl  :tablast<CR>
-nnoremap tn  :tabnew<CR>
+
 
 nnoremap gb  :Gbrowse<CR> " Open current file on github.com
 
@@ -143,11 +143,16 @@ set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff
 " Gives css auto completion to files using filetype=css
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-"finds all occurances of current word (ie. finds css class)
+" Donielle custom configurations, holla
+" finds all occurances of current word (ie. finds css class)
 nnoremap <leader>fc :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>
 
 "status of which file you're on at tail end of file
-" set statusline=%F
-set laststatus=2
+set statusline=%F
 
+" makes jj esc for my non-monster hands
+:imap jj <Esc>
+
+" paste from clipboard
+nnoremap <leader>p "+p
 
