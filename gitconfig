@@ -11,5 +11,8 @@
   c = commit
   cm = commit -m
   p = push
+  b = branch
+  co = checkout
   cob = checkout -b
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  pushb = git push --set-upstream origin
