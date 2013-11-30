@@ -150,4 +150,5 @@ nnoremap <leader>fc :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **"
 " set statusline=%F
 set laststatus=2
 
-
+" allows for searching while typing
+set incsearch
