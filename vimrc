@@ -154,5 +154,10 @@ set statusline=%F
 :imap jj <Esc>
 
 " paste from clipboard
+nnoremap <leader>c "*yy
+
+" paste from clipboard
 nnoremap <leader>p "+p
 
+" allows for searching while typing
+set incsearch
