@@ -152,3 +152,6 @@ set laststatus=2
 
 " allows for searching while typing
 set incsearch
+
+" shortcut for copying blocks of text to clipboard when in visual block mode
+vnoremap <Leader>y "+y
