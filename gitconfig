@@ -12,6 +12,7 @@
   cm = commit -m
   p = push
   b = branch
+  st = status
   co = checkout
   cob = checkout -b
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
