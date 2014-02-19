@@ -23,6 +23,7 @@ Bundle 'acevery/snipmate-plus'
 Bundle 'nono/vim-handlebars'
 Bundle 'mklabs/grunt.vim'
 Bundle 'ag.vim'
+Bundle 'scrooloose/nerdtree'
 
 " VISUAL STUFF
 
@@ -129,7 +130,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'
 " Automatic brackets when typing css
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
+inoremap {{     {{ }}
 inoremap {}     {}
 
 set iskeyword+=- "Makes foo-bar considered one word
@@ -153,7 +154,7 @@ set statusline=%F
 " makes jj esc for my non-monster hands
 :imap jj <Esc>
 
-" paste from clipboard
+" Copy to clipboard
 nnoremap <leader>c "*yy
 
 " paste from clipboard
@@ -237,3 +238,9 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
+" Nerd Tree shortcut to open/close
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+
+
+
