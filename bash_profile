@@ -9,6 +9,7 @@ export PATH="$PATH:/usr/local/share/npm/bin" # Add npm apps
 
 # Aliases
 alias git=hub
+alias g=hub
 alias ls='ls -F'
 alias l='ls'
 alias la='l -a'

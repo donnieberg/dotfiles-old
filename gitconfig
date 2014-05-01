@@ -2,7 +2,6 @@
 	helper = osxkeychain
 [push]
 	default = simple
-
 [alias]
   a = add .
   c = commit -m
@@ -17,7 +16,5 @@
 
   s = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-
-
 [include]
   	path = .gitconfig.user
