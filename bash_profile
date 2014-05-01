@@ -19,10 +19,6 @@ alias llrt='ll -rt'
 alias ..='cd ..'
 
 # PROMPT
-[[ -s "$HOME/.git-prompt.sh" ]] && source "$HOME/.git-prompt.sh" #source git-prompt.sh file if it exists
-PS1='\[\033[1;34m\]\u\[\033[0m\]@\h:\W$(__git_ps1 "(%s)")\$ '
-
-# P=S1"\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
