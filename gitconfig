@@ -1,6 +1,3 @@
-[user]
-	name = Donielle Berg
-	email = donielle.berg@gmail.com
 [credential]
 	helper = osxkeychain
 [push]
@@ -8,12 +5,19 @@
 
 [alias]
   a = add .
-  c = commit
-  cm = commit -m
-  p = push
+  c = commit -m
+  am = commit --amend
+  ps = push
+  pl = pull
+
   b = branch
-  st = status
   co = checkout
-  cob = checkout -b
+  nb = checkout -b
+  pushb = push --set-upstream origin 		# push new branch to remote
+
+  s = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  pushb = push --set-upstream origin
+
+
+[include]
+  	path = .gitconfig.user
