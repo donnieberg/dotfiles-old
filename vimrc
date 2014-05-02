@@ -1,7 +1,7 @@
 set nocompatible              	" be iMproved, required
 filetype off                  	" required
 
-let mapleader = ","             " Create custom alias with this guy
+let mapleader = ','             " Create custom alias with this guy
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -29,6 +29,8 @@ Plugin 'acevery/snipmate-plus'
 Plugin 'nono/vim-handlebars'
 Plugin 'mklabs/grunt.vim'
 Plugin 'ag.vim'
+Plugin 'morhetz/gruvbox'
+
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
@@ -64,6 +66,7 @@ set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
+colorscheme gruvbox     " https://github.com/morhetz/gruvbox
 set number			" love seeing where I am in the file
 set title			" Sets title at tope of tab to be the filename
 set showmode                    " Show current mode down the bottom
@@ -84,7 +87,18 @@ set incsearch       " Searches as you type
 set hlsearch        " Highlights as you search
 
 " HELPFUL VIM FUNCTIONALITY
-imap <leader>,m <c-x><c-o> 	" Omni completion
+" Omni completion
+imap <Leader>,m <c-x><c-o>
+
+" Copy to clipboard
+nnoremap <Leader>c "*yy
+
+" Paste from clipboard
+nnoremap <Leader>p "+p
+
+" copy in visual mode
+vnoremap <Leader>y "+y
+
 nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'	" Ignore node_modules in CtrlP

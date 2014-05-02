@@ -27,8 +27,16 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias git=hub
 alias g=git
 alias h=history
+alias ls='ls -F'
+alias l='ls'
+alias la='l -a'
+alias ll='l -l -gho'
+alias lla='ll -a'
+alias lltr='ll -tr'
+alias llrt='ll -rt'
 
 alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
@@ -60,7 +68,7 @@ setopt MENU_COMPLETE
 setopt appendhistory
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
-setopt autocd 
+setopt autocd
 setopt prompt_subst
 setopt autopushd
 
