@@ -1,6 +1,8 @@
 set nocompatible              	" be iMproved, required
 filetype off                  	" required
 
+let mapleader = ","             " Create custom alias with this guy
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -46,8 +48,8 @@ filetype plugin indent on    	" required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" ============================================================ 
-" GENERAL CONFIG BY DONIELLE 
+" ============================================================
+" GENERAL CONFIG BY DONIELLE
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=1000                " Store lots of :cmdline history
 set encoding=utf-8		" yup
@@ -69,19 +71,23 @@ syntax on			" um, duh
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 
 " FORMATTING
-set smartindent
+set cindent
+set smarttab
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 set iskeyword+=- 		" Makes foo-bar considered one word
-set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing 
+set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
+set incsearch       " Searches as you type
+set hlsearch        " Highlights as you search
 
 " HELPFUL VIM FUNCTIONALITY
 imap <leader>,m <c-x><c-o> 	" Omni completion
 nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'	" Ignore node_modules in CtrlP 
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'	" Ignore node_modules in CtrlP
 
 " Fix indenting for css style things (sass, css, styl)
 au BufEnter *.css set nocindent
@@ -92,8 +98,8 @@ au BufEnter *.styl set nocindent
 au BufLeave *.styl set cindent
 
 "Sets filetpe of scss & styl to be css. Helps with plugins.
-autocmd BufNewFile,BufRead *.scss set ft=scss.css 
+autocmd BufNewFile,BufRead *.scss set ft=scss.css
 autocmd BufNewFile,BufRead *.styl set ft=styl.css
 
 " Gives css auto completion to files using filetype=css
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS 
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS

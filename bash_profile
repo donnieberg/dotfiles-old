@@ -17,7 +17,6 @@ alias ll='l -l -gho'
 alias lla='ll -a'
 alias lltr='ll -tr'
 alias llrt='ll -rt'
-alias ..='cd ..'
 
 # PROMPT
 
