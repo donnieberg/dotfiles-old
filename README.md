@@ -1,6 +1,7 @@
 dotfiles
 ========
 SETTING UP DEV ENVIRONMENT
+88888   Test for git multiple accounts 8888888
 
 * Homebrew
 * Xcode
