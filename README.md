@@ -1,15 +1,30 @@
 dotfiles
 ========
-##Custom set up with Xiao
+SETTING UP DEV ENVIRONMENT
 
-* Added aliases for terminal
-ll - list long
-la - list all
-lla - list long all
-.. - go up one directory
+* Homebrew
+* Xcode
+* Xcode Command Line tools
 
-* Added PS1 code for git branch prompts and colors
+* Iterm
+* Z-Shell
 
-* Added script file (bootstrap.sh) to set up links between root directory's dotfiles and dotfiles inside this folder. Only need to run once to set up connections.
+* Git
+* Vundle
 
-* After sourcing bootsrap.sh, source bash_profile to do set up
+* Node
+* NPM (automatically installed with Node)
+* Grunt
+* Coffeescript
+
+CONFIGURING DOTFILES
+
+* Create/clone dotfiles repo
+* bash_profile - master configurations for system wide aliases, PATHs, and stuff
+* GIT - Create gitconfig for only git stuff and point path to include .gitconfig.user (able to use gitconfig for different accounts)
+* GIT - Create .gitconfig.user for specific account
+* ZSH - setup zshrc
+* VIM - setup vimrc
+* Run bootstrap.sh script to create symlinks between actual dotfiles in root directory to dotfiles repo OR do it manually by running from CLI ln -s ~/dotfiles/vimrc .vimrc
+* Run vim plugin install CLI vim +PluginInstall (https://github.com/gmarik/Vundle.vim)
+
