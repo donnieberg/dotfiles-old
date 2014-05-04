@@ -3,6 +3,7 @@
 [push]
 	default = simple
 [alias]
+  g = git
   a = add .
   c = commit -m
   am = commit --amend

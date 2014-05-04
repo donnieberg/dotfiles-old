@@ -27,8 +27,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias git=hub
-alias g=git
+# LISTING OUT STUFF
 alias h=history
 alias ls='ls -F'
 alias l='ls'
@@ -37,6 +36,36 @@ alias ll='l -l -gho'
 alias lla='ll -a'
 alias lltr='ll -tr'
 alias llrt='ll -rt'
+
+# GIT
+alias git=hub
+alias gcl='git clone'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gpl='git pull'
+alias gpsh='git push'
+alias gipsh='git push -u origin master'
+alias gco='git checkout'
+alias gnb='git checkout -b'
+
+alias gs='git status'
+alias gl='git log'
+alias gh='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+
+alias gbl='git branch -l'
+alias gbd='git branch -D'
+alias gpsb='push --set-upstream origin'
+
+alias gst='git stash'
+alias guns='git unstage'
+alias gunc='git uncommit'
+
+alias grv='git remote -v'
+alias grr='git remote rm'
+alias gra='git remote add'
+
+
+
 
 alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
