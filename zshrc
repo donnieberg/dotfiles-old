@@ -43,8 +43,8 @@ alias gcl='git clone'
 alias ga='git add .'
 alias gc='git commit -m'
 alias gpl='git pull'
-alias gpsh='git push'
-alias gipsh='git push -u origin master'
+alias gps='git push'
+alias gips='git push -u origin master'   #initial git push
 alias gco='git checkout'
 alias gnb='git checkout -b'
 
