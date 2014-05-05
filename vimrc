@@ -88,16 +88,13 @@ set hlsearch        " Highlights as you search
 
 " HELPFUL VIM FUNCTIONALITY
 " Omni completion
-imap <Leader>,m <c-x><c-o>
-
-" Copy to clipboard
-nnoremap <Leader>c "*yy
+imap <Leader>m <c-x><c-o>
 
 " Paste from clipboard
-nnoremap <Leader>p "+p
+nnoremap <Leader>p "*p
 
 " copy in visual mode
-vnoremap <Leader>y "+y
+vnoremap <Leader>y "*y
 
 nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
