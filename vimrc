@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' 	" let Vundle manage Vundle, required
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'othree/html5.vim'
 Plugin 'tristen/vim-sparkup'
 Plugin 'hail2u/vim-css3-syntax'
@@ -116,7 +116,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Paste from clipboard
-nnoremap <Leader>p "*p
+nnoremap <Leader>p "+p
 
 " copy in visual mode
 vnoremap <Leader>y "*y
