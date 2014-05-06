@@ -84,17 +84,10 @@ set expandtab
 set iskeyword+=- 		" Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
 set incsearch       " Searches as you type
-set hlsearch        " Highlights as you search
 
 " HELPFUL VIM FUNCTIONALITY
 " Omni completion
 imap <Leader>m <c-x><c-o>
-
-" Paste from clipboard
-nnoremap <Leader>p "*p
-
-" copy in visual mode
-vnoremap <Leader>y "*y
 
 nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
@@ -114,3 +107,19 @@ autocmd BufNewFile,BufRead *.styl set ft=styl.css
 
 " Gives css auto completion to files using filetype=css
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" VIM WINDOW LAYOUT AND NAVIGATION
+" Jumping between split windows, instead of ctrl-w-w just do ctrl-j to jump
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Paste from clipboard
+nnoremap <Leader>p "*p
+
+" copy in visual mode
+vnoremap <Leader>y "*y
+
+" open current file in browser
+nnoremap <Leader>ob :!open %<Enter>

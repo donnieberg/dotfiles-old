@@ -127,4 +127,4 @@ vcs_info_wrapper() {
   fi
 }
 PROMPT=$'\n%{$reset_color%}$[HISTCMD-1] %F{cyan}%~ $(vcs_info_wrapper) %F{magenta}% \n$ %{$reset_color%}'
-
+#PATH=/usr/local/bin:/usr/bin
