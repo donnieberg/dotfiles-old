@@ -13,23 +13,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' 	" let Vundle manage Vundle, required
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'scrooloose/syntastic'
 Plugin 'othree/html5.vim'
 Plugin 'tristen/vim-sparkup'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'kchmck/vim-coffee-script'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'joestelmach/lint.vim'
+" Plugin 'joestelmach/lint.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'acevery/snipmate-plus'
 Plugin 'nono/vim-handlebars'
 Plugin 'mklabs/grunt.vim'
 Plugin 'ag.vim'
-Plugin 'morhetz/gruvbox'
 
 
 " ------------------------------------------------------------
@@ -66,7 +62,7 @@ set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
-colorscheme gruvbox     " https://github.com/morhetz/gruvbox
+" colorscheme gruvbox     " https://github.com/morhetz/gruvbox
 set number			" love seeing where I am in the file
 set title			" Sets title at tope of tab to be the filename
 set showmode                    " Show current mode down the bottom
@@ -123,3 +119,11 @@ vnoremap <Leader>y "*y
 
 " open current file in browser
 nnoremap <Leader>ob :!open %<Enter>
+
+" resize splits with mouse
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
