@@ -26,6 +26,7 @@ Plugin 'acevery/snipmate-plus'
 Plugin 'nono/vim-handlebars'
 Plugin 'mklabs/grunt.vim'
 Plugin 'ag.vim'
+Plugin 'scrooloose/nerdtree'
 
 
 " ------------------------------------------------------------
@@ -127,3 +128,20 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
+" Nerdtree shortcut
+map <Leader> :NERDTreeToggle<CR>
+
+" in CtrlP ignore the build folders
+let g:ctrlp_custom_ignore = 'builds\|node_modules\'
+let g:ctrlp_custom_ignore = 'dist\|node_modules\'
+
+" Auto close brackets and use control-j to escape out after done typing inside
+imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+inoremap ( ()<Esc>:let leavechar=")"<CR>i
+inoremap [ []<Esc>:let leavechar="]"<CR>i
+inoremap { {}<Esc>:let leavechar="}"<CR>i
+inoremap ' ''<Esc>:let leavechar="'"<CR>i
+
+
+nnoremap <Leader>sh <C-W>t <C-W>K
+nnoremap <Leader>sv <C-W>t <C-W>H

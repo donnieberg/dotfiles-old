@@ -40,7 +40,8 @@ alias llrt='ll -rt'
 # GIT
 alias git=hub
 alias gcl='git clone'
-alias ga='git add .'
+alias ga='git add --all'
+alias gu='git add --update'
 alias gc='git commit -m'
 alias gpl='git pull'
 alias gps='git push'
@@ -54,7 +55,7 @@ alias gh='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
 
 alias gbl='git branch -l'
 alias gbd='git branch -D'
-alias gpsb='push --set-upstream origin'
+alias gpsb='git push --set-upstream origin'
 
 alias gst='git stash'
 alias guns='git unstage'
