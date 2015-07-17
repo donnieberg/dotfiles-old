@@ -21,6 +21,7 @@ setopt RM_STAR_WAIT
 # Jump into directory and run ls.
 c() { cd $@; ls }
 
+# ------------------------------------------------------------------------------------
 # NAVIGATION
 alias ..="cd .."
 alias ...="cd ../.."
@@ -40,34 +41,29 @@ alias llrt='ll -rt'
 # GIT
 alias git=hub
 alias gcl='git clone'
-alias ga='git add --all'
+alias ga='git add .'
 alias gu='git add --update'
 alias gc='git commit -m'
+alias gca='git commit --amend'
 alias gpl='git pull'
 alias gps='git push'
 alias gips='git push -u origin master'   #initial git push
 alias gco='git checkout'
 alias gnb='git checkout -b'
-
 alias gs='git status'
 alias gl='git log'
 alias gh='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
-
 alias gbl='git branch -l'
 alias gbd='git branch -D'
 alias gpsb='git push --set-upstream origin'
-
 alias gst='git stash'
 alias guns='git unstage'
 alias gunc='git uncommit'
-
 alias grv='git remote -v'
 alias grr='git remote rm'
 alias gra='git remote add'
 
-
-
-
+#VIM
 alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
 # Colorize output, add file type indicator, and put sizes in human readable format
@@ -84,7 +80,7 @@ alias prettyxml="xmllint --format -"
 
 function al { ls -t | head -n ${1:-10}; }
 
-
+# ------------------------------------------------------------------------------------
 #  ZSH options
 
 HISTFILE=~/.zsh_history
@@ -129,19 +125,12 @@ vcs_info_wrapper() {
 }
 PROMPT=$'\n%{$reset_color%}$[HISTCMD-1] %F{cyan}%~ $(vcs_info_wrapper) %F{magenta}% \n$ %{$reset_color%}'
 
-# PATHS
-export PATH=''
-export PATH="/usr/local/bin" # Make Homebrew first
-export PATH="$PATH:~/bin"
-export PATH="$PATH:/Applications/Postgres.app/Contents/MacOS/bin" # Add Postgres
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin" # System
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM bin to $PATH
-export PATH="$PATH:/usr/local/share/npm/bin" # Add npm apps
-export PATH="$PATH:/usr/local/bin:/usr/bin" # To use macvim
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# ------------------------------------------------------------------------------------
+
+# OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+
+# Open current dir in Finder
+alias f='open -a Finder ./'

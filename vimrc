@@ -11,20 +11,10 @@ call vundle#begin()
 " All of your Plugins must be added between the following lines
 
 Plugin 'gmarik/Vundle.vim' 	" let Vundle manage Vundle, required
-Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
-Plugin 'othree/html5.vim'
-Plugin 'tristen/vim-sparkup'
-Plugin 'hail2u/vim-css3-syntax'
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'kchmck/vim-coffee-script'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-" Plugin 'joestelmach/lint.vim'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'acevery/snipmate-plus'
-Plugin 'nono/vim-handlebars'
-Plugin 'mklabs/grunt.vim'
 Plugin 'ag.vim'
 Plugin 'scrooloose/nerdtree'
 
@@ -141,6 +131,7 @@ inoremap ( ()<Esc>:let leavechar=")"<CR>i
 inoremap [ []<Esc>:let leavechar="]"<CR>i
 inoremap { {}<Esc>:let leavechar="}"<CR>i
 inoremap ' ''<Esc>:let leavechar="'"<CR>i
+inoremap " ""<Esc>:let leavechar='"'<CR>i
 
 
 nnoremap <Leader>sh <C-W>t <C-W>K
