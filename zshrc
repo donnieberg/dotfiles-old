@@ -1,4 +1,5 @@
 #. /usr/bin/z.sh
+ZSH_THEME="ginau"
 
 bindkey -v
 autoload -U colors && colors
@@ -98,6 +99,7 @@ setopt autocd
 setopt prompt_subst
 setopt autopushd
 
+
 unsetopt correctall
 # Allow [ or ] whereever you want
 # (Prevents "zsh: no matches found: ...")
@@ -134,3 +136,4 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew c
 
 # Open current dir in Finder
 alias f='open -a Finder ./'
+
