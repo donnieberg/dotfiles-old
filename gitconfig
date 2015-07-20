@@ -6,3 +6,8 @@
 
 [include]
   	path = .gitconfig.user
+[user]
+	name = Donielle Berg
+	email = donielle.berg@gmail.com
+[core]
+	excludesfile = ~/dotfiles/gitignore_global

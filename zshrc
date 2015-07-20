@@ -5,6 +5,7 @@ autoload -U colors && colors
 autoload -U compinit; compinit
 
 ZSH_THEME="mh"
+DEFAULT_USER="Donielle"
 
 
 # Default completion style is quite plain and ugly. If you want to improve its appearance, enter the following commands:
@@ -44,15 +45,18 @@ alias gcl='git clone'
 alias ga='git add --all'
 alias gu='git add --update'
 alias gc='git commit -m'
+alias gca='git commit --amend'
 alias gpl='git pull'
 alias gps='git push'
 alias gips='git push -u origin master'   #initial git push
 alias gco='git checkout'
 alias gnb='git checkout -b'
+alias grs='git reset --soft HEAD~1'
 
 alias gs='git status'
 alias gl='git log'
 alias gh='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
+alias gd='git diff'
 
 alias gbl='git branch -l'
 alias gbd='git branch -D'

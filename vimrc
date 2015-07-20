@@ -17,6 +17,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
 Plugin 'ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'crusoexia/vim-monokai' " color scheme for js files
 
 
 " ------------------------------------------------------------
@@ -53,7 +54,7 @@ set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
-" colorscheme gruvbox     " https://github.com/morhetz/gruvbox
+colorscheme monokai     " https://github.com/crusoexia/vim-monokai
 set number			" love seeing where I am in the file
 set title			" Sets title at tope of tab to be the filename
 set showmode                    " Show current mode down the bottom
@@ -101,6 +102,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 " Paste from clipboard
 nnoremap <Leader>p "+p
