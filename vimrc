@@ -105,10 +105,11 @@ nnoremap <C-H> <C-W><C-H>
 
 
 " Paste from clipboard
-nnoremap <Leader>p "+p
+nnoremap <Leader>p :r !pbpaste<CR>
 
 " copy in visual mode
-vnoremap <Leader>y "*y
+vmap <Leader>y :w !pbcopy<CR><CR>
+
 
 " open current file in browser
 nnoremap <Leader>ob :!open %<Enter>
