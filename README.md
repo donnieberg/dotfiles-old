@@ -29,3 +29,4 @@ CONFIGURING DOTFILES
 * Run bootstrap.sh script to create symlinks between actual dotfiles in root directory to dotfiles repo OR do it manually by running from CLI ln -s ~/dotfiles/vimrc .vimrc
 * Run vim plugin install CLI vim +PluginInstall (https://github.com/gmarik/Vundle.vim)
 
+* test
