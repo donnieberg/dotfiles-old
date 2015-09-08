@@ -15,13 +15,15 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
-Plugin 'ag.vim'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'crusoexia/vim-monokai' " color scheme for js files
-
+Plugin 'pangloss/vim-javascript'
+Plugin 'bling/vim-airline'
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
+execute pathogen#infect()
 
 filetype plugin indent on    	" required
 
@@ -78,8 +80,6 @@ set incsearch       " Searches as you type
 imap <Leader>m <c-x><c-o>
 
 nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
-nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules)$'	" Ignore node_modules in CtrlP
 
 " Fix indenting for css style things (sass, css, styl)
 au BufEnter *.css set nocindent
@@ -105,7 +105,7 @@ nnoremap <C-H> <C-W><C-H>
 
 
 " Paste from clipboard
-nnoremap <Leader>p :r !pbpaste<CR>
+nnoremap <Leader>p :r !pbpaste<CR><CR>
 
 " copy in visual mode
 vmap <Leader>y :w !pbcopy<CR><CR>
@@ -125,6 +125,7 @@ endif
 map <Leader> :NERDTreeToggle<CR>
 
 " in CtrlP ignore the build folders
+nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = 'builds\|node_modules\'
 let g:ctrlp_custom_ignore = 'dist\|node_modules\'
 
@@ -139,3 +140,6 @@ inoremap " ""<Esc>:let leavechar='"'<CR>i
 
 nnoremap <Leader>sh <C-W>t <C-W>K
 nnoremap <Leader>sv <C-W>t <C-W>H
+
+" Ag plugin - make search start at root
+let g:ag_working_path_mode="r"
