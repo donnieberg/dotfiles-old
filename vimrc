@@ -104,12 +104,9 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-" Paste from clipboard
-nnoremap <Leader>p :r !pbpaste<CR><CR>
-
-" copy in visual mode
-vmap <Leader>y :w !pbcopy<CR><CR>
-
+" Copy and Paste from OSX clipboard
+vmap <Leader>y y:call system("pbcopy", getreg("\""))<CR>
+nmap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
 
 " open current file in browser
 nnoremap <Leader>ob :!open %<Enter>

@@ -11,3 +11,4 @@
 	email = donielle.berg@gmail.com
 [core]
 	excludesfile = ~/dotfiles/gitignore_global
+	editor = /usr/bin/vim
