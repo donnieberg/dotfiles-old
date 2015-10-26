@@ -1,3 +1,8 @@
+" ============================================================
+" ============================================================
+" SETUP FILE VARIABLES, VUNDLE, AND LIST PLUGINS TO BE INSTALLED
+" ============================================================
+" ============================================================
 set nocompatible              	" be iMproved, required
 filetype off                  	" required
 
@@ -41,14 +46,17 @@ filetype plugin indent on    	" required
 " Put your non-Plugin stuff after this line
 
 " ============================================================
+" ============================================================
 " GENERAL CONFIG BY DONIELLE
+" ============================================================
+" ============================================================
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=1000                " Store lots of :cmdline history
-set encoding=utf-8		" yup
-set nofoldenable		" folding can be dangerous when collaborating
+set encoding=utf-8		          " yup
+set nofoldenable		            " folding can be dangerous when collaborating
 set visualbell                  " No sounds
 set autoread                    " Reload files changed outside vim
-set hidden			" Allows u to hide buffer without having to write it first
+set hidden			                " Allows u to hide buffer without having to write it first
 
 " VIM WEIRD BACKUP FILE STUFF
 set noswapfile
@@ -57,10 +65,10 @@ set undodir=~/.vim/undodir
 
 " VISUAL STUFF
 colorscheme monokai     " https://github.com/crusoexia/vim-monokai
-set number			" love seeing where I am in the file
-set title			" Sets title at tope of tab to be the filename
-set showmode                    " Show current mode down the bottom
-syntax on			" um, duh
+set number			        " love seeing where I am in the file
+set title			          " Sets title at tope of tab to be the filename
+set showmode            " Show current mode down the bottom
+syntax on			          " um, duh
 autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 
 " FORMATTING
@@ -71,15 +79,12 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-set iskeyword+=- 		" Makes foo-bar considered one word
+set iskeyword+=- 		    " Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
-set incsearch       " Searches as you type
+set incsearch           " Searches as you type
 
-" HELPFUL VIM FUNCTIONALITY
-" Omni completion
-imap <Leader>m <c-x><c-o>
-
-nmap <CR> o<Esc>k		" Enter new lines above/below w/o going into insert mode
+" ------------------------------------------------------------
+" GENERAL VIM CONFIG
 
 " Fix indenting for css style things (sass, css, styl)
 au BufEnter *.css set nocindent
@@ -96,12 +101,27 @@ autocmd BufNewFile,BufRead *.styl set ft=styl.css
 " Gives css auto completion to files using filetype=css
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+" resize splits with mouse
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" ------------------------------------------------------------
+" GENERAL VIM - KEYBOARD SHORTCUTS
+" Enter new lines above/below w/o going into insert mode
+nmap <CR> o<Esc>k
+
 " VIM WINDOW LAYOUT AND NAVIGATION
 " Jumping between split windows, instead of ctrl-w-w just do ctrl-j to jump
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" Shortcut to switch between horizontal and vertical split views
+nnoremap <Leader>sh <C-W>t <C-W>K
+nnoremap <Leader>sv <C-W>t <C-W>H
 
 
 " Copy and Paste from OSX clipboard
@@ -110,21 +130,6 @@ nmap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
 
 " open current file in browser
 nnoremap <Leader>ob :!open %<Enter>
-
-" resize splits with mouse
-set mouse+=a
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
-
-" Nerdtree shortcut
-map <Leader> :NERDTreeToggle<CR>
-
-" in CtrlP ignore the build folders
-nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
-let g:ctrlp_custom_ignore = 'builds\|node_modules\'
-let g:ctrlp_custom_ignore = 'dist\|node_modules\'
 
 " Auto close brackets and use control-j to escape out after done typing inside
 imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
@@ -135,8 +140,31 @@ inoremap ' ''<Esc>:let leavechar="'"<CR>i
 inoremap " ""<Esc>:let leavechar='"'<CR>i
 
 
-nnoremap <Leader>sh <C-W>t <C-W>K
-nnoremap <Leader>sv <C-W>t <C-W>H
-
+" ------------------------------------------------------------
+"  SPECIFIC PLUGINS - CONFIG AND KEYBOARD SHORTCUTS
 " Ag plugin - make search start at root
 let g:ag_working_path_mode="r"
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
+" Nerdtree plugin - shortcut to open/close nerdtree side panel
+map <Leader> :NERDTreeToggle<CR>
+
+
+" in CtrlP ignore the build folders when searching
+nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
+let g:ctrlp_custom_ignore = 'builds\|node_modules\'
+let g:ctrlp_custom_ignore = 'dist\|node_modules\'
+" ------------------------------------------------------------
