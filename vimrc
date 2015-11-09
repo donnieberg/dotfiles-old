@@ -167,4 +167,7 @@ map <Leader> :NERDTreeToggle<CR>
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = 'builds\|node_modules\'
 let g:ctrlp_custom_ignore = 'dist\|node_modules\'
+
+" Make syntastic use eslint for JSX/ES6 syntax
+let g:syntastic_javascript_checkers = ['eslint']
 " ------------------------------------------------------------
