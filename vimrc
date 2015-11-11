@@ -25,10 +25,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'crusoexia/vim-monokai' " color scheme for js files
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic' " syntax highlighting
+Plugin 'elzr/vim-json' " syntax highlighting json
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
-execute pathogen#infect()
 
 filetype plugin indent on    	" required
 
