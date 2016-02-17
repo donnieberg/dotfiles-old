@@ -84,6 +84,12 @@ set iskeyword+=- 		    " Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
 set incsearch           " Searches as you type
 
+" Code folding
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
 " ------------------------------------------------------------
 " GENERAL VIM CONFIG
 
