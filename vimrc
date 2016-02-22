@@ -15,19 +15,18 @@ call vundle#begin()
 " ------------------------------------------------------------
 " All of your Plugins must be added between the following lines
 
-Plugin 'gmarik/Vundle.vim' 	" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim' 	          " let Vundle manage Vundle, required
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'crusoexia/vim-monokai' " color scheme for js files
-Plugin 'kristijanhusak/vim-hybrid-material' "color scheme
+Plugin 'crusoexia/vim-monokai'        " color scheme for js files
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic' " syntax highlighting
-Plugin 'elzr/vim-json' " syntax highlighting json
+Plugin 'scrooloose/syntastic'         " syntax highlighting
+Plugin 'elzr/vim-json'                " syntax highlighting json
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
@@ -66,8 +65,7 @@ set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
-" colorscheme monokai               " https://github.com/crusoexia/vim-monokai
-colorscheme hybrid_material         " https://github.com/kristijanhusak/vim-hybrid-material
+colorscheme monokai                 " https://github.com/crusoexia/vim-monokai
 set number			                    " love seeing where I am in the file
 set title			                      " Sets title at tope of tab to be the filename
 set showmode                        " Show current mode down the bottom
