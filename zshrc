@@ -56,6 +56,7 @@ alias grs='git reset --soft HEAD~1'
 
 alias gs='git status'
 alias gl='git log'
+alias glp='git log --all --graph --decorate --oneline --simplify-by-decoration'
 alias gh='log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'
 alias gd='git diff'
 
@@ -91,6 +92,7 @@ alias prettyxml="xmllint --format -"
 
 function al { ls -t | head -n ${1:-10}; }
 
+alias py-server='python -m SimpleHTTPServer'
 
 #  ZSH options
 
