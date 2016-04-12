@@ -156,8 +156,15 @@ export PATH="$PATH:/usr/local/bin:/usr/bin" # To use macvim
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-
-
-
+# This loads nvm
 export NVM_DIR="/Users/d.berg/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Automatically runs nvm in directories that contain a .nvmrc file to determine which node/npm to use
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  fi
+}
+add-zsh-hook chpwd load-nvmrc

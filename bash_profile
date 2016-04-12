@@ -18,3 +18,4 @@ export PATH="$PATH:/usr/local/bin:/usr/bin"
 
 # HEROKU TOOLBELT 
 export PATH="/usr/local/heroku/bin:$PATH"
+export MATRIX_HOME=/Users/d.berg/Matrix

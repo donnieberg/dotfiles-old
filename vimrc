@@ -15,18 +15,19 @@ call vundle#begin()
 " ------------------------------------------------------------
 " All of your Plugins must be added between the following lines
 
-Plugin 'gmarik/Vundle.vim' 	          " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim' 	            " let Vundle manage Vundle, required
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'crusoexia/vim-monokai'        " color scheme for js files
+Plugin 'crusoexia/vim-monokai'          " color scheme for js files
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'         " syntax highlighting
-Plugin 'elzr/vim-json'                " syntax highlighting json
+Plugin 'scrooloose/syntastic'           " syntax highlighting
+Plugin 'elzr/vim-json'                  " syntax highlighting json
+Plugin 'editorconfig/editorconfig-vim'  " coding styleguide enforcer (used by Matrix Team at Salesforce)
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
