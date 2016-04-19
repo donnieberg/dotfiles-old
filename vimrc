@@ -176,6 +176,15 @@ nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = 'builds\|node_modules\'
 let g:ctrlp_custom_ignore = 'dist\|node_modules\'
 
-" Make syntastic use eslint for JSX/ES6 syntax
+" Syntastic recommended settings from repo
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " ------------------------------------------------------------
