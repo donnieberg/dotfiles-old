@@ -46,7 +46,7 @@ alias ga='git add --all'
 alias gu='git add --update'
 alias gc='git commit -m'
 alias gca='git commit --amend'
-alias gcv='git commit --no-verify'
+alias gcnv='git commit --no-verify'
 alias gpl='git pull'
 alias gps='git push'
 alias gips='git push -u origin master'   #initial git push
@@ -62,19 +62,18 @@ alias gd='git diff'
 
 alias gbl='git branch -l'
 alias gbd='git branch -D'
-alias gpsb='git push --set-upstream origin'
+alias grbd='git push origin --delete'
+alias gbps='git push --set-upstream origin'
 
 alias gst='git stash'
 alias gm='git merge'
 alias guns='git unstage'
 alias gunc='git uncommit'
+alias grb='git rebase -i'
 
 alias grv='git remote -v'
 alias grr='git remote rm'
 alias gra='git remote add'
-
-
-
 
 alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
