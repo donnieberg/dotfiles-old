@@ -79,9 +79,13 @@ alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
 # Colorize output, add file type indicator, and put sizes in human readable format
 alias ls='ls -GFh'
+
 # Same as above, but in long listing format
 alias ll='ls -GFhl'
 alias l='ls -Gfoa'
+
+# for Salesforce matrix team
+alias dcp='ssh dev-construct-proxy'
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"
