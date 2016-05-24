@@ -24,6 +24,7 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'crusoexia/vim-monokai'          " color scheme for js files
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'groenewege/vim-less'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'           " syntax highlighting
