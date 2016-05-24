@@ -24,6 +24,7 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'crusoexia/vim-monokai'          " color scheme for js files
 Plugin 'pangloss/vim-javascript'
+Plugin 'groenewege/vim-less'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'           " syntax highlighting
 Plugin 'elzr/vim-json'                  " syntax highlighting json
@@ -186,5 +187,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-less
+nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " ------------------------------------------------------------
