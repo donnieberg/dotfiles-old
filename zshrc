@@ -97,6 +97,8 @@ function al { ls -t | head -n ${1:-10}; }
 
 alias py-server='python -m SimpleHTTPServer'
 
+alias use='nvm use'
+
 #  ZSH options
 
 HISTFILE=~/.zsh_history
@@ -171,3 +173,5 @@ load-nvmrc() {
   fi
 }
 add-zsh-hook chpwd load-nvmrc
+
+source $HOME/.nvm/nvm.sh

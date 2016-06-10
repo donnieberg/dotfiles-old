@@ -20,14 +20,3 @@ export PATH="$PATH:/usr/local/bin:/usr/bin"
 export PATH="/usr/local/heroku/bin:$PATH"
 export MATRIX_HOME=/Users/d.berg/Matrix
 
-# Running Mocha and Karma tests
-runTests() {
-    testFile=${1}
-    if [ $# -eq 0 ]; then
-        echo 'Running test suite:'
-        sudo grunt karma:unit --debug-test=true
-    else
-        echo 'Running individual test:'
-        sudo mocha --compilers js:babel/register --require test/unit/helper.js $testFile
-    fi
-}
