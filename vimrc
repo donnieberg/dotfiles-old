@@ -20,7 +20,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'crusoexia/vim-monokai'          " color scheme for js files
 Plugin 'pangloss/vim-javascript'
