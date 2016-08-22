@@ -81,7 +81,7 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+set autoindent
 
 set iskeyword+=- 		    " Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
@@ -193,3 +193,4 @@ let g:syntastic_check_on_wq = 0
 nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " ------------------------------------------------------------
+"

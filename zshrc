@@ -29,78 +29,6 @@ zstyle ":completion:complete-file::::" completer _files
 zstyle ":completion:*" verbose yes
 bindkey "^xF" complete-file
 
-# NAVIGATION
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
-# LISTING OUT STUFF
-alias h=history
-alias ls="ls -F"
-alias l="ls"
-alias la="l -a"
-alias ll="l -l -gho"
-alias lla="ll -a"
-alias lltr="ll -tr"
-alias llrt="ll -rt"
-
-# GIT
-alias gcl="git clone"
-alias ga="git add ."
-alias gu="git add --update"
-alias gc="git commit -m"
-alias gca="git commit --amend"
-alias gcnv="git commit --no-verify"
-alias gpl="git pull"
-alias gps="git push"
-alias gips="git push -u origin master"   #initial git push
-alias gco="git checkout"
-alias gnb="git checkout -b"
-alias grs="git reset --soft HEAD~1"
-
-alias gs="git status"
-alias gl="git log"
-alias glp="git log --all --graph --decorate --oneline --simplify-by-decoration"
-alias gh="log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short"
-alias gd="git diff"
-
-alias gbl="git branch -l"
-alias gbd="git branch -D"
-alias grbd="git push origin --delete"
-alias gbps="git push --set-upstream origin"
-
-alias gst="git stash"
-alias gm="git merge"
-alias guns="git unstage"
-alias gunc="git uncommit"
-alias grb="git rebase -i"
-
-alias grv="git remote -v"
-alias grr="git remote rm"
-alias gra="git remote add"
-
-alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
-
-# Colorize output, add file type indicator, and put sizes in human readable format
-alias ls="ls -GFh"
-
-# Same as above, but in long listing format
-alias ll="ls -GFhl"
-alias l="ls -Gfoa"
-
-# for Salesforce matrix team
-alias dcp="ssh dev-construct-proxy"
-
-# Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
-alias sed="sed -E"
-
-alias prettyjson="python -m json.tool"
-alias prettyxml="xmllint --format -"
-
-alias py-server="python -m SimpleHTTPServer"
-
-alias use="nvm use"
 
 
 
@@ -216,3 +144,76 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# NAVIGATION
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# LISTING OUT STUFF
+alias h=history
+alias ls="ls -F"
+alias l="ls"
+alias la="l -a"
+alias ll="l -l -gho"
+alias lla="ll -a"
+alias lltr="ll -tr"
+alias llrt="ll -rt"
+
+# GIT
+alias gcl="git clone"
+alias ga="git add ."
+alias gu="git add --update"
+alias gc="git commit -m"
+alias gca="git commit --amend"
+alias gcnv="git commit --no-verify"
+alias gpl="git pull"
+alias gps="git push"
+alias gips="git push -u origin master"   #initial git push
+alias gco="git checkout"
+alias gnb="git checkout -b"
+alias grs="git reset --soft HEAD~1"
+
+alias gs="git status"
+alias gl="git log"
+alias glp="git log --all --graph --decorate --oneline --simplify-by-decoration"
+alias gh="log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short"
+alias gd="git diff"
+
+alias gbl="git branch -l"
+alias gbd="git branch -D"
+alias grbd="git push origin --delete"
+alias gbps="git push --set-upstream origin"
+
+alias gst="git stash"
+alias gm="git merge"
+alias guns="git unstage"
+alias gunc="git uncommit"
+alias grb="git rebase -i"
+
+alias grv="git remote -v"
+alias grr="git remote rm"
+alias gra="git remote add"
+
+alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
+
+# Colorize output, add file type indicator, and put sizes in human readable format
+alias ls="ls -GFh"
+
+# Same as above, but in long listing format
+alias ll="ls -GFhl"
+alias l="ls -Gfoa"
+
+# for Salesforce matrix team
+alias dcp="ssh dev-construct-proxy"
+
+# Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
+alias sed="sed -E"
+
+alias prettyjson="python -m json.tool"
+alias prettyxml="xmllint --format -"
+
+alias py-server="python -m SimpleHTTPServer"
+
+alias use="nvm use"
