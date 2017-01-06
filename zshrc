@@ -37,7 +37,7 @@ bindkey "^xF" complete-file
 # PATHS
 export PATH=""
 export PATH="/usr/local/bin" # Make Homebrew first
-export PATH="$PATH:~/bin"
+export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/Applications/Postgres.app/Contents/MacOS/bin" # Add Postgres
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin" # System
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM bin to $PATH
@@ -66,6 +66,9 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 
 source $HOME/.nvm/nvm.sh
+
+# SFDC BLT
+export P4PORT=ssl:p4proxy.soma.salesforce.com:1999
 
 # ----------------------------------------
 
@@ -190,7 +193,7 @@ alias gst="git stash"
 alias gm="git merge"
 alias guns="git unstage"
 alias gunc="git uncommit"
-alias grb="git rebase -i"
+alias grbh="git rebase -i HEAD~"
 
 alias grv="git remote -v"
 alias grr="git remote rm"
@@ -207,6 +210,7 @@ alias l="ls -Gfoa"
 
 # for Salesforce matrix team
 alias dcp="ssh dev-construct-proxy"
+alias grd="sudo grunt rundev"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"
