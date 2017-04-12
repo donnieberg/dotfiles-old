@@ -199,6 +199,8 @@ alias grv="git remote -v"
 alias grr="git remote rm"
 alias gra="git remote add"
 
+alias sshAdd="ssh-add -K ~/.ssh/id_rsa"
+
 alias vpi="vim +PluginInstall +qall" # This installs all vim plugins via vundle
 
 # Colorize output, add file type indicator, and put sizes in human readable format
@@ -211,6 +213,8 @@ alias l="ls -Gfoa"
 # for Salesforce matrix team
 alias dcp="ssh dev-construct-proxy"
 alias grd="sudo grunt rundev"
+alias waveServer="PORT=8000 DATA_DIR=/Users/d.berg/Code/WaveUI WAVEBRANCH=master ./run.sh queryserver"
+alias waveMakeAll="make clean setup; make"
 
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
 alias sed="sed -E"

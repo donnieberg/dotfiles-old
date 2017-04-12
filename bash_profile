@@ -7,8 +7,8 @@ export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin" # System
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# NVM
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # NPM
 export PATH="$PATH:/usr/local/share/npm/bin"
