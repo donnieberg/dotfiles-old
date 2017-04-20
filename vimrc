@@ -3,77 +3,63 @@
 " SETUP FILE VARIABLES, VUNDLE, AND LIST PLUGINS TO BE INSTALLED
 " ============================================================
 " ============================================================
-set nocompatible              	" be iMproved, required
-filetype off                  	" required
 
-let mapleader = ','             " Create custom alias with this guy
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" ============================================================
+" VUNDLE SETUP
+" ============================================================
+
+set nocompatible													" be iMproved, required
+filetype off															" required
+set rtp+=~/.vim/bundle/Vundle.vim					" set the runtime path to include Vundle and initialize
 
 call vundle#begin()
 " ------------------------------------------------------------
 " All of your Plugins must be added between the following lines
 
-Plugin 'gmarik/Vundle.vim' 	            " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim' 	        " let Vundle manage Vundle, required
+Plugin 'reewr/vim-monokai-phoenix'	" Colorscheme
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
-Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'crusoexia/vim-monokai'          " color scheme for js files
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'groenewege/vim-less'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'           " syntax highlighting
 Plugin 'elzr/vim-json'                  " syntax highlighting json
-Plugin 'editorconfig/editorconfig-vim'  " coding styleguide enforcer (used by Matrix Team at Salesforce)
 
 " ------------------------------------------------------------
 call vundle#end()            	" required
-
 filetype plugin indent on    	" required
 
 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" ============================================================
 " ============================================================
 " GENERAL CONFIG BY DONIELLE
 " ============================================================
-" ============================================================
-set backspace=indent,eol,start  " Allow backspace in insert mode
-set history=1000                " Store lots of :cmdline history
-set encoding=utf-8		          " yup
-set nofoldenable		            " folding can be dangerous when collaborating
-set visualbell                  " No sounds
-set autoread                    " Reload files changed outside vim
-set hidden			                " Allows u to hide buffer without having to write it first
+
+let mapleader = ','												" Create custom alias with this guy
+
+set backspace=indent,eol,start  			" Allow backspace in insert mode
+set history=1000                			" Store lots of :cmdline history
+set encoding=utf-8		          		" yup
+set visualbell                  			" No sounds
+set autoread                    			" Reload files changed outside vim
+set hidden			                	" Allows u to hide buffer without having to write it first
 
 " VIM WEIRD BACKUP FILE STUFF
+colorscheme monokai-phoenix
 set noswapfile
 set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
-colorscheme monokai                 " https://github.com/crusoexia/vim-monokai
-set number			                    " love seeing where I am in the file
-set title			                      " Sets title at tope of tab to be the filename
-set showmode                        " Show current mode down the bottom
-syntax on			                      " um, duh
-autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
+set number			                    	" love seeing where I am in the file
+set title			                      	" Sets title at tope of tab to be the filename
+set showmode                        			" Show current mode down the bottom
+syntax on			                      	" um, duh
+autocmd BufWritePre * :%s/\s\+$//e 			" Remove trailing whitespace on save
 
 " FORMATTING
 set cindent
@@ -83,9 +69,9 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 
-set iskeyword+=- 		    " Makes foo-bar considered one word
+set iskeyword+=- 		    					" Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
-set incsearch           " Searches as you type
+set incsearch           						" Searches as you type
 
 " Code folding
 set foldmethod=indent   "fold based on indent
@@ -129,10 +115,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Shortcut to switch between horizontal and vertical split views
-nnoremap <Leader>sh <C-W>t <C-W>K
-nnoremap <Leader>sv <C-W>t <C-W>H
-
 
 " Copy and Paste from OSX clipboard
 vmap <Leader>y y:call system("pbcopy", getreg("\""))<CR>
@@ -151,19 +133,7 @@ inoremap " ""<Esc>:let leavechar='"'<CR>i
 
 
 " ------------------------------------------------------------
-"  SPECIFIC PLUGINS - CONFIG AND KEYBOARD SHORTCUTS
-" Ag plugin - make search start at root
-let g:ag_working_path_mode="r"
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+"  SPECIFIC PLUGINS - CONFIG AND KEYBOARD SHORTCUTS "
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -177,19 +147,4 @@ map <Leader> :NERDTreeToggle<CR>
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = 'builds\|node_modules\|build\|dist\|lib'
 
-" Syntastic recommended settings from repo
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 0
-""let g:syntastic_auto_loc_list = 2
-""let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
-" vim-less
-nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
-
-" ------------------------------------------------------------
-"

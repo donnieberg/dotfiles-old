@@ -14,6 +14,7 @@ ZSH_THEME="avit"
 bindkey -v
 autoload -U colors && colors
 autoload -U compinit; compinit
+
 # Git prompt
 autoload -Uz vcs_info
 
@@ -43,9 +44,6 @@ export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin" # System
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM bin to $PATH
 export PATH="$PATH:/usr/local/share/npm/bin" # Add npm apps
 export PATH="$PATH:/usr/local/bin:/usr/bin" # To use macvim
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
 ### Added by the Heroku Toolbelt
