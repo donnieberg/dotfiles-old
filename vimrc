@@ -62,12 +62,16 @@ syntax on			                      	" um, duh
 autocmd BufWritePre * :%s/\s\+$//e 			" Remove trailing whitespace on save
 
 " FORMATTING
-set cindent
-set smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set autoindent
+set noexpandtab " Make sure that every file uses real tabs, not spaces
+set shiftround  " Round indent to multiple of 'shiftwidth'
+set smartindent " Do smart indenting when starting a new line
+set autoindent  " Copy indent from current line, over to the new line
+
+" Set the tab width
+let s:tabwidth=2
+exec 'set tabstop='    .s:tabwidth
+exec 'set shiftwidth=' .s:tabwidth
+exec 'set softtabstop='.s:tabwidth
 
 set iskeyword+=- 		    					" Makes foo-bar considered one word
 set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing

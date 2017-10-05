@@ -42,6 +42,8 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/Applications/Postgres.app/Contents/MacOS/bin" # Add Postgres
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin" # System
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM bin to $PATH
+
+export PATH="./node_modules/.bin:$PATH" # Always use local npm module first.
 export PATH="$PATH:/usr/local/share/npm/bin" # Add npm apps
 export PATH="$PATH:/usr/local/bin:/usr/bin" # To use macvim
 
