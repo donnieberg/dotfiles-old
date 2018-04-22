@@ -17,22 +17,22 @@ call vundle#begin()
 " ------------------------------------------------------------
 " All of your Plugins must be added between the following lines
 
-Plugin 'gmarik/Vundle.vim' 	        " let Vundle manage Vundle, required
-Plugin 'reewr/vim-monokai-phoenix'	" Colorscheme
+Plugin 'gmarik/Vundle.vim'							" let Vundle manage Vundle, required
+Plugin 'reewr/vim-monokai-phoenix'			" Colorscheme
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'acevery/snipmate-plus'
+Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'           " syntax highlighting
-Plugin 'elzr/vim-json'                  " syntax highlighting json
+Plugin 'elzr/vim-json'
 
 " ------------------------------------------------------------
-call vundle#end()            	" required
-filetype plugin indent on    	" required
+call vundle#end()												" required
+filetype plugin indent on								" required
 
 
 " ============================================================
@@ -41,12 +41,12 @@ filetype plugin indent on    	" required
 
 let mapleader = ','												" Create custom alias with this guy
 
-set backspace=indent,eol,start  			" Allow backspace in insert mode
-set history=1000                			" Store lots of :cmdline history
-set encoding=utf-8		          		" yup
-set visualbell                  			" No sounds
-set autoread                    			" Reload files changed outside vim
-set hidden			                	" Allows u to hide buffer without having to write it first
+set backspace=indent,eol,start						" Allow backspace in insert mode
+set history=1000													" Store lots of :cmdline history
+set encoding=utf-8												" yup
+set visualbell														" No sounds
+set autoread															" Reload files changed outside vim
+set hidden																" Allows u to hide buffer without having to write it first
 
 " VIM WEIRD BACKUP FILE STUFF
 colorscheme monokai-phoenix
@@ -55,17 +55,17 @@ set undofile
 set undodir=~/.vim/undodir
 
 " VISUAL STUFF
-set number			                    	" love seeing where I am in the file
-set title			                      	" Sets title at tope of tab to be the filename
-set showmode                        			" Show current mode down the bottom
-syntax on			                      	" um, duh
+set number															" love seeing where I am in the file
+set title																" Sets title at tope of tab to be the filename
+set showmode                        		" Show current mode down the bottom
+syntax on																" um, duh
 autocmd BufWritePre * :%s/\s\+$//e 			" Remove trailing whitespace on save
 
 " FORMATTING
-set noexpandtab " Make sure that every file uses real tabs, not spaces
-set shiftround  " Round indent to multiple of 'shiftwidth'
-set smartindent " Do smart indenting when starting a new line
-set autoindent  " Copy indent from current line, over to the new line
+set noexpandtab													" Make sure that every file uses real tabs, not spaces
+set shiftround  												" Round indent to multiple of 'shiftwidth'
+set smartindent 												" Do smart indenting when starting a new line
+set autoindent  												" Copy indent from current line, over to the new line
 
 " Set the tab width
 let s:tabwidth=2
@@ -78,10 +78,10 @@ set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're 
 set incsearch           						" Searches as you type
 
 " Code folding
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+set foldmethod=indent									"fold based on indent
+set foldnestmax=10      							"deepest fold is 10 levels
+set nofoldenable        							"dont fold by default
+set foldlevel=1         							"this is just what i use
 
 " ------------------------------------------------------------
 " GENERAL VIM CONFIG
@@ -151,4 +151,6 @@ map <Leader> :NERDTreeToggle<CR>
 nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
 let g:ctrlp_custom_ignore = 'builds\|node_modules\|build\|dist\|lib'
 
-
+" eslint and jsx
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint' " use local npm eslint instead of global
