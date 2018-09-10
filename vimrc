@@ -4,102 +4,144 @@
 " ============================================================
 " ============================================================
 
+set nocompatible
+filetype off
 
-" ============================================================
-" VUNDLE SETUP
-" ============================================================
-
-set nocompatible													" be iMproved, required
-filetype off															" required
-set rtp+=~/.vim/bundle/Vundle.vim					" set the runtime path to include Vundle and initialize
-
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" ------------------------------------------------------------
-" All of your Plugins must be added between the following lines
 
-Plugin 'gmarik/Vundle.vim'							" let Vundle manage Vundle, required
-Plugin 'reewr/vim-monokai-phoenix'			" Colorscheme
-Plugin 'kien/ctrlp.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
+" Colorscheme
+Plugin 'reewr/vim-monokai-phoenix'
 Plugin 'acevery/snipmate-plus'
-Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'pangloss/vim-javascript'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'othree/html5.vim'
+Plugin 'ag.vim'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx'
-Plugin 'elzr/vim-json'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
-" ------------------------------------------------------------
-call vundle#end()												" required
-filetype plugin indent on								" required
-
+call vundle#end()
 
 " ============================================================
-" GENERAL CONFIG BY DONIELLE
+" Donielle Config
 " ============================================================
+" Create custom alias with this guy
 
-let mapleader = ','												" Create custom alias with this guy
-
-set backspace=indent,eol,start						" Allow backspace in insert mode
-set history=1000													" Store lots of :cmdline history
-set encoding=utf-8												" yup
-set visualbell														" No sounds
-set autoread															" Reload files changed outside vim
-set hidden																" Allows u to hide buffer without having to write it first
-
-" VIM WEIRD BACKUP FILE STUFF
-colorscheme monokai-phoenix
-set noswapfile
-set undofile
-set undodir=~/.vim/undodir
+let mapleader = ','
+  
 
 " VISUAL STUFF
-set number															" love seeing where I am in the file
-set title																" Sets title at tope of tab to be the filename
-set showmode                        		" Show current mode down the bottom
-syntax on																" um, duh
-autocmd BufWritePre * :%s/\s\+$//e 			" Remove trailing whitespace on save
+set title                 " Sets the title at top of tab to be the filename if "titlestring" isn't defined
+set laststatus=1          " Has to do with the status bar at the bottom. Check :help laststatus
+set number                " Line numbers on the left hand side
+set visualbell            " That bell is the worst sound. Shut it the fuck off.
+syntax enable             " Sets syntax highlighting on because what is this notepad
+filetype plugin indent on " This gets vim to automatically load filetype specific options for plugins and indentation
+hi LineNr   ctermfg=gray ctermbg=NONE
+hi htmlTagName ctermfg=black ctermbg=NONE
 
-" FORMATTING
-set noexpandtab													" Make sure that every file uses real tabs, not spaces
-set shiftround  												" Round indent to multiple of 'shiftwidth'
-set smartindent 												" Do smart indenting when starting a new line
-set autoindent  												" Copy indent from current line, over to the new line
+" BASIC FUNCTIONALITY
 
-" Set the tab width
-let s:tabwidth=2
-exec 'set tabstop='    .s:tabwidth
-exec 'set shiftwidth=' .s:tabwidth
-exec 'set softtabstop='.s:tabwidth
+set encoding=utf-8        " Duh
+set history=5112          " Default is 20, I'd rather set this to infinity
+set viminfo='1000,<500,:500,/500
+set nofoldenable          " Don't fold shit because it's the worst.
+set ignorecase smartcase
+set iskeyword+=-          " Make hypenated words considered one tab stop
 
-set iskeyword+=- 		    					" Makes foo-bar considered one word
-set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
-set incsearch           						" Searches as you type
+" Swap file stuff.
+set noswapfile
+set hidden
+set undofile
+set undodir=~/.vim/undo
 
-" Code folding
-set foldmethod=indent									"fold based on indent
-set foldnestmax=10      							"deepest fold is 10 levels
-set nofoldenable        							"dont fold by default
-set foldlevel=1         							"this is just what i use
+" Formatting
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+"autocmd BufWritePre * :%s/\s\+$//e " Remove trailing whitespace on save
 
-" ------------------------------------------------------------
-" GENERAL VIM CONFIG
-
-" Fix indenting for css style things (sass, css, styl)
+" Fix indenting for css style things (sass, css)
 au BufEnter *.css set nocindent
 au BufLeave *.css set cindent
 au BufEnter *.scss set nocindent
 au BufLeave *.scss set cindent
-au BufEnter *.styl set nocindent
-au BufLeave *.styl set cindent
+au BufEnter *.sass set nocindent
+au BufLeave *.sass set cindent
+au BufEnter *.less set nocindent
+au BufLeave *.less set cindent
 
-"Sets filetpe of scss & styl to be css. Helps with plugins.
-autocmd BufNewFile,BufRead *.scss set ft=scss.css
-autocmd BufNewFile,BufRead *.styl set ft=styl.css
+autocmd BufNewFile,BufRead *.scss set ft=scss.css "Sets filetype of scss to be css. Helps with plugins.
+autocmd BufNewFile,BufRead *.less set ft=less.css "Sets filetype of less to be css. Helps with plugins.
 
-" Gives css auto completion to files using filetype=css
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" Enter newlines without entering insert mode
+" http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+nnoremap <CR> o<Esc>k
+
+" Local list nav
+nnoremap fj :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>
+nnoremap cn :cn<CR>
+nnoremap cp :cp<CR>
+"nnoremap -- :GundoToggle<CR>
+
+" CtrlP customizations
+nnoremap ff :CtrlP<CR>
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules\|build\|dist\|lib)$'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+inoremap ;d :r !date -u <CR>
+"
+
+
+nnoremap <leader>v :e $MYVIMRC<CR>
+nnoremap <leader>gx :Gbrowse<CR>
+nnoremap <leader>g :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>c :ccl<CR>
+nnoremap <leader>o :copen<CR>
+map <Esc><Esc> :w<CR>
+
+set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff,node_modules " See :help wildignore
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS           " Gives css auto completion to files using filetype=css
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" Escape/unescape & < > HTML entities in range (default current line).
+function! HtmlEntities(line1, line2, action)
+  let search = @/
+  let range = 'silent ' . a:line1 . ',' . a:line2
+  if a:action == 0  " must convert &amp; last
+    execute range . 'sno/&lt;/</eg'
+    execute range . 'sno/&gt;/>/eg'
+    execute range . 'sno/&amp;/&/eg'
+  else              " must convert & first
+    execute range . 'sno/&/&amp;/eg'
+    execute range . 'sno/</&lt;/eg'
+    execute range . 'sno/>/&gt;/eg'
+  endif
+  nohl
+  let @/ = search
+endfunction
+command! -range -nargs=1 Entities call HtmlEntities(<line1>, <line2>, <args>)
+noremap <silent> \h :Entities 0<CR>
+noremap <silent> \H :Entities 1<CR>
+
+" ============================================================
+" Layout & Mouse Functionality
 
 " resize splits with mouse
 set mouse+=a
@@ -108,10 +150,6 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
-" ------------------------------------------------------------
-" GENERAL VIM - KEYBOARD SHORTCUTS
-" Enter new lines above/below w/o going into insert mode
-nmap <CR> o<Esc>k
 
 " VIM WINDOW LAYOUT AND NAVIGATION
 " Jumping between split windows, instead of ctrl-w-w just do ctrl-j to jump
@@ -135,22 +173,14 @@ inoremap { {}<Esc>:let leavechar="}"<CR>i
 inoremap ' ''<Esc>:let leavechar="'"<CR>i
 inoremap " ""<Esc>:let leavechar='"'<CR>i
 
-
-" ------------------------------------------------------------
-"  SPECIFIC PLUGINS - CONFIG AND KEYBOARD SHORTCUTS "
-
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-
 " Nerdtree plugin - shortcut to open/close nerdtree side panel
 map <Leader> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-
-" in CtrlP ignore the build folders when searching
-nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
-let g:ctrlp_custom_ignore = 'builds\|node_modules\|build\|dist\|lib'
 
 " eslint and jsx
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint' " use local npm eslint instead of global
+
+

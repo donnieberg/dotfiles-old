@@ -1,0 +1,162 @@
+" ============================================================
+" ============================================================
+" SETUP FILE VARIABLES, VUNDLE, AND LIST PLUGINS TO BE INSTALLED
+" ============================================================
+" ============================================================
+
+
+" ============================================================
+" VUNDLE SETUP
+" ============================================================
+
+set nocompatible													" be iMproved, required
+filetype off															" required
+set rtp+=~/.vim/bundle/Vundle.vim					" set the runtime path to include Vundle and initialize
+
+call vundle#begin()
+" ------------------------------------------------------------
+" All of your Plugins must be added between the following lines
+
+Plugin 'gmarik/Vundle.vim'							" let Vundle manage Vundle, required
+Plugin 'reewr/vim-monokai-phoenix'			" Colorscheme
+Plugin 'kien/ctrlp.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'acevery/snipmate-plus'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
+
+" ------------------------------------------------------------
+call vundle#end()												" required
+filetype plugin indent on								" required
+
+
+" ============================================================
+" GENERAL CONFIG BY DONIELLE
+" ============================================================
+
+let mapleader = ','												" Create custom alias with this guy
+
+set backspace=indent,eol,start						" Allow backspace in insert mode
+set history=1000													" Store lots of :cmdline history
+set encoding=utf-8												" yup
+set visualbell														" No sounds
+set autoread															" Reload files changed outside vim
+set hidden																" Allows u to hide buffer without having to write it first
+
+" VIM WEIRD BACKUP FILE STUFF
+colorscheme monokai-phoenix
+set noswapfile
+set undofile
+set undodir=~/.vim/undodir
+
+" VISUAL STUFF
+set number															" love seeing where I am in the file
+set title																" Sets title at tope of tab to be the filename
+set showmode                        		" Show current mode down the bottom
+syntax on																" um, duh
+autocmd BufWritePre * :%s/\s\+$//e 			" Remove trailing whitespace on save
+
+" FORMATTING
+set noexpandtab													" Make sure that every file uses real tabs, not spaces
+set shiftround  												" Round indent to multiple of 'shiftwidth'
+set smartindent 												" Do smart indenting when starting a new line
+set autoindent  												" Copy indent from current line, over to the new line
+
+set tabstop=2       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+set shiftwidth=2    " Indents will have a width of 4
+
+set softtabstop=2   " Sets the number of columns for a TAB
+
+set expandtab       " Expand TABs to spaces
+
+
+set iskeyword+=- 		    					" Makes foo-bar considered one word
+set wildignore=node_modules/*,*.jpg,*.png,*.gif,*.woff 			" Ignores stuff we're not editing
+set incsearch           						" Searches as you type
+
+" Code folding
+"set foldmethod=indent									"fold based on indent
+"set foldnestmax=10      							"deepest fold is 10 levels
+"set nofoldenable        							"dont fold by default
+"set foldlevel=1         							"this is just what i use
+
+" ------------------------------------------------------------
+" GENERAL VIM CONFIG
+
+" Fix indenting for css style things (sass, css, styl)
+au BufEnter *.css set nocindent
+au BufLeave *.css set cindent
+au BufEnter *.scss set nocindent
+au BufLeave *.scss set cindent
+au BufEnter *.styl set nocindent
+au BufLeave *.styl set cindent
+
+"Sets filetpe of scss & styl to be css. Helps with plugins.
+autocmd BufNewFile,BufRead *.scss set ft=scss.css
+autocmd BufNewFile,BufRead *.styl set ft=styl.css
+
+" Gives css auto completion to files using filetype=css
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" resize splits with mouse
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" ------------------------------------------------------------
+" GENERAL VIM - KEYBOARD SHORTCUTS
+" Enter new lines above/below w/o going into insert mode
+nmap <CR> o<Esc>k
+
+" VIM WINDOW LAYOUT AND NAVIGATION
+" Jumping between split windows, instead of ctrl-w-w just do ctrl-j to jump
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Copy and Paste from OSX clipboard
+vmap <Leader>y y:call system("pbcopy", getreg("\""))<CR>
+nmap <Leader>p :call setreg("\"",system("pbpaste"))<CR>p
+
+" open current file in browser
+nnoremap <Leader>ob :!open %<Enter>
+
+" Auto close brackets and use control-j to escape out after done typing inside
+imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
+inoremap ( ()<Esc>:let leavechar=")"<CR>i
+inoremap [ []<Esc>:let leavechar="]"<CR>i
+inoremap { {}<Esc>:let leavechar="}"<CR>i
+inoremap ' ''<Esc>:let leavechar="'"<CR>i
+inoremap " ""<Esc>:let leavechar='"'<CR>i
+
+
+" ------------------------------------------------------------
+"  SPECIFIC PLUGINS - CONFIG AND KEYBOARD SHORTCUTS "
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
+" Nerdtree plugin - shortcut to open/close nerdtree side panel
+map <Leader> :NERDTreeToggle<CR>
+
+
+" in CtrlP ignore the build folders when searching
+nnoremap ff :CtrlP<CR>		" For CTRLP plugin, alias for fuzzy find
+let g:ctrlp_custom_ignore = 'builds\|node_modules\|build\|dist\|lib'
+
+" eslint and jsx
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint' " use local npm eslint instead of global
