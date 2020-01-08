@@ -42,8 +42,8 @@ set number                " Line numbers on the left hand side
 set visualbell            " That bell is the worst sound. Shut it the fuck off.
 syntax enable             " Sets syntax highlighting on because what is this notepad
 filetype plugin indent on " This gets vim to automatically load filetype specific options for plugins and indentation
-hi LineNr   ctermfg=gray ctermbg=NONE
-hi htmlTagName ctermfg=black ctermbg=NONE
+" hi LineNr   ctermfg=gray ctermbg=NONE
+" "hi htmlTagName ctermfg=black ctermbg=NONE
 
 " BASIC FUNCTIONALITY
 

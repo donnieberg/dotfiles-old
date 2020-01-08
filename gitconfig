@@ -2,6 +2,7 @@
 	helper = osxkeychain
 [push]
 	default = simple
+	gpgsign = if-asked
 [alias]
 
 [include]
@@ -9,6 +10,7 @@
 [user]
 	name = Donielle Berg
 	email = donielle.berg@gmail.com
+	signingkey = 3B866B33CC166890F881EDDFEB43C37E6EF66857
 [core]
 	excludesfile = ~/dotfiles/gitignore_global
 	editor = /usr/bin/vim
@@ -16,3 +18,7 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
